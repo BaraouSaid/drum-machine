@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Drumpads from './components/Drumpads';
 import './App.css';
 
 function App() {
@@ -58,38 +59,13 @@ function App() {
       src: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3',
     },
   ];
-  //Definition of the function responsible to play the sound when clicked
-  const playSound = (el) => {
-    const audioKey = document.getElementById(el);
-    audioKey.play();
-  };
 
   return (
     <div
       id="drum-machine"
       className=" mx-auto px-8 bg-white flex flex-row flex-sm:flex-wrap justify-around items-center h-3/4 p-1 relative text-lg font-black border-solid border-8 border-zinc-900 w-max h-auto"
     >
-      <div className="h-92 grid grid-cols-3 gap-3 items-center justify-center">
-        {heaters.map((heater) => {
-          return (
-            <div
-              onClick={() => {
-                playSound(heater.keyboardKey);
-              }}
-              key={heater.id}
-              id={heater.src}
-              className="drum-pad w-20 h-20 rounded-md bg-white flex items-center justify-center  cursor-pointer shadow-md"
-            >
-              {heater.keyboardKey}
-              <audio
-                src={heater.src}
-                id={heater.keyboardKey}
-                className="clip"
-              ></audio>
-            </div>
-          );
-        })}
-      </div>
+      <Drumpads heaters={heaters} />
 
       <div className="absolute top-3 right-5 text-white bg-black px-3 font-light italic">
         DRUM MACHINE
