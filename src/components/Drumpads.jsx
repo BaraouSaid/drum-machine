@@ -1,4 +1,4 @@
-import { PropTypes } from 'react';
+// import { PropTypes } from 'react';
 
 const Drumpads = ({ heaters }) => {
   //Definition of the function responsible to play the sound when clicked

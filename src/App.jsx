@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Drumpads from './components/Drumpads';
-import './App.css';
+import Controls from './components/Controls';
+// import './App.css';
 
 function App() {
   const heaters = [
@@ -71,26 +72,7 @@ function App() {
         DRUM MACHINE
       </div>
 
-      <div className=" w-64 h-96 flex flex-col items-center justify-center gap-5">
-        <div className="flex flex-col items-center justify-center">
-          <p>Power</p>
-          <div className="w-12 bg-black p-1 cursor-pointer">
-            <div className="w-4 h-4 bg-sky-500"></div>
-          </div>
-        </div>
-        <p id="display" className="block bg-black p-3 text-white">
-          SOUND EFFECT
-        </p>
-        <div>
-          <input max="1" min="0" step="0.01" type="range" />
-        </div>
-        <div className="flex flex-col items-center justify-center">
-          <p>Bank</p>
-          <div className="w-12 bg-black p-1 cursor-pointer">
-            <div className="w-4 h-4 bg-sky-500"></div>
-          </div>
-        </div>
-      </div>
+      <Controls />
     </div>
   );
 }
