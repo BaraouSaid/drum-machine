@@ -4,6 +4,8 @@ import Controls from './components/Controls';
 // import './App.css';
 
 function App() {
+  const [soundText, setSoundText] = useState('Sound FX');
+
   const heaters = [
     {
       id: 0,
@@ -72,7 +74,7 @@ function App() {
         DRUM MACHINE
       </div>
 
-      <Controls />
+      <Controls props={(soundText, setSoundText)} />
     </div>
   );
 }
