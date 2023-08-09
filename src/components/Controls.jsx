@@ -1,6 +1,6 @@
 // import { useState } from 'react';
 
-const Controls = ({ props }) => {
+const Controls = ({ soundText }) => {
   return (
     <div className="flex flex-col items-center justify-center w-64 gap-5 h-96">
       <div className="flex flex-col items-center justify-center">
@@ -10,7 +10,7 @@ const Controls = ({ props }) => {
         </div>
       </div>
       <p id="display" className="block px-3 py-1 text-white bg-black">
-        {props}
+        {soundText}
       </p>
       <div>
         <input max="1" min="0" step="0.01" type="range" />

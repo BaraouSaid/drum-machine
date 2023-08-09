@@ -1,11 +1,12 @@
 // import { PropTypes } from 'react';
 
-const Drumpads = ({ heaters }) => {
+const Drumpads = ({ heaters, playSound }) => {
   //Definition of the function responsible to play the sound when clicked
-  const playSound = (el) => {
-    const audioKey = document.getElementById(el);
-    audioKey.play();
-  };
+  // const playSound = (el) => {
+  //   const audioKey = document.getElementById(el);
+  //   audioKey.play();
+  //   console.log();
+  // };
 
   return (
     <div className="grid items-center justify-center grid-cols-3 gap-3 h-92">
