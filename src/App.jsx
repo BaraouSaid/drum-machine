@@ -4,7 +4,7 @@ import Controls from './components/Controls';
 // import './App.css';
 
 function App() {
-  const [soundText, setSoundText] = useState('Sound FX');
+  const [soundText, setSoundText] = useState('Hello');
 
   const heaters = [
     {
@@ -66,15 +66,15 @@ function App() {
   return (
     <div
       id="drum-machine"
-      className=" mx-auto px-8 bg-white flex flex-row flex-sm:flex-wrap justify-around items-center h-3/4 p-1 relative text-lg font-black border-solid border-8 border-zinc-900 w-max h-auto"
+      className="relative flex flex-row items-center justify-around h-auto p-1 px-8 mx-auto text-lg font-black bg-white border-8 border-solid flex-sm:flex-wrap h-3/4 border-zinc-900 w-max"
     >
       <Drumpads heaters={heaters} />
 
-      <div className="absolute top-3 right-5 text-white bg-black px-3 font-light italic">
+      <div className="absolute px-3 italic font-light text-white bg-black top-3 right-5">
         DRUM MACHINE
       </div>
 
-      <Controls props={(soundText, setSoundText)} />
+      <Controls props={soundText} />
     </div>
   );
 }

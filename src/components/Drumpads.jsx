@@ -6,8 +6,9 @@ const Drumpads = ({ heaters }) => {
     const audioKey = document.getElementById(el);
     audioKey.play();
   };
+
   return (
-    <div className="h-92 grid grid-cols-3 gap-3 items-center justify-center">
+    <div className="grid items-center justify-center grid-cols-3 gap-3 h-92">
       {heaters.map(({ id, src, keyboardKey }) => {
         return (
           <div
@@ -16,7 +17,7 @@ const Drumpads = ({ heaters }) => {
             }}
             key={id}
             id={src}
-            className="drum-pad w-20 h-20 rounded-md bg-white flex items-center justify-center  cursor-pointer shadow-md"
+            className="flex items-center justify-center w-20 h-20 bg-white rounded-md shadow-md cursor-pointer drum-pad"
           >
             {keyboardKey}
             <audio src={src} id={keyboardKey} className="clip"></audio>
