@@ -2,28 +2,25 @@
 
 const Controls = ({ clipName }) => {
   const buttonsClassName = 'w-4 h-4 bg-sky-500';
-  console.log(buttonsClassName);
-  // const toggleClassName = (e) => {
 
-  //   if(buttonsClassName === e.target.className) {
-  //     e.target.className = ` ${buttonsClassName} ml-6 `
-  //   }
-  // }
+  const toggleClassName = (e) => {
+    let childDiv = e.target.firstChild;
+    if (!childDiv.className.includes('ml-6')) {
+      childDiv.className = `${buttonsClassName} ml-6 `;
+    } else {
+      childDiv.className = buttonsClassName;
+    }
+  };
+
+  const toggleInstruments = () => {};
+
   return (
     <div className="flex flex-col items-center justify-center w-64 gap-5 h-96">
       <div className="flex flex-col items-center justify-center">
         <p>Power</p>
         <div
           className="w-12 p-1 bg-black cursor-pointer "
-          onClick={(e) => {
-            let childDiv = e.target.firstChild;
-
-            if (!childDiv.className.includes('ml-6')) {
-              childDiv.className = `${buttonsClassName} ml-6 `;
-            } else {
-              childDiv.className = buttonsClassName;
-            }
-          }}
+          onClick={toggleClassName}
         >
           <div className="w-4 h-4 bg-sky-500"></div>
         </div>
@@ -38,16 +35,9 @@ const Controls = ({ clipName }) => {
         <p>Bank</p>
         <div
           className="w-12 p-1 bg-black cursor-pointer"
-          onClick={(e) =>
-            (e.target.firstChild.className = `w-4 h-4 bg-sky-500 ml-6`)
-          }
+          onClick={toggleClassName}
         >
-          <div
-            className="w-4 h-4 bg-sky-500"
-            onClick={(e) => {
-              e.target.className = `${buttonsClassName}`;
-            }}
-          ></div>
+          <div className="w-4 h-4 bg-sky-500"></div>
         </div>
       </div>
     </div>
