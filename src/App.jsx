@@ -78,46 +78,40 @@ function App() {
     const audioKey = document.getElementById(el);
     audioKey.play();
     console.log(audioKey);
+    document.getElementById('display').innerHTML = el;
   };
-
-  // document.addEventListener('keydown', playKeySound);
-
-  // const displayClipName = (el) => {
-  //   const test = document.getElementById(el);
-  // let {clipName} = clipName
-  //   setSoundText(test.clipName);
-  //   console.log(test.clipName);
-  // };
 
   const playKeySound = (e) => {
-    const clipName = heaters.find(
+    const heater = heaters.find(
       (heater) => heater.keyboardKey === e.key.toUpperCase()
     );
-    console.log(clipName.keyboardKey);
-    if (!clipName) return;
+    if (!heater) return;
+    console.log(heater);
+    document.getElementById(heater.keyboardKey).play();
 
-    const audioKey = document.getElementById(keyboardKey.src).play();
-    // audioKey.play();
-    console.log(audioKey);
-
-    // const audioKey = document.getElementById(el);
-    // audioKey.play();
-    // console.log(audioKey);
+    document.getElementById('display').innerHTML = heater.clipName;
   };
 
+  // const displayClipName = () => {
+  //   const displayDiv = document.getElementById('display');
+  //   displayDiv.innerHTML(heater.keyboardKey);
+  //   console.log(displayDiv);
+  // };
+
   return (
-    <div
-      id="drum-machine"
-      className="relative flex flex-row items-center justify-around h-auto p-1 px-8 mx-auto text-lg font-black bg-white border-8 border-solid flex-sm:flex-wrap h-3/4 border-zinc-900 w-max"
-      onKeyDown={playSound}
-    >
-      <Drumpads heaters={heaters} playSound={playSound} clipname={clipName} />
+    <div tabIndex={0} onKeyDown={playKeySound}>
+      <div
+        id="drum-machine"
+        className="relative flex flex-row items-center justify-around h-auto p-1 px-8 mx-auto text-lg font-black bg-white border-8 border-solid flex-sm:flex-wrap h-3/4 border-zinc-900 w-max"
+      >
+        <Drumpads heaters={heaters} playSound={playSound} clipname={clipName} />
 
-      <div className="absolute px-3 italic font-light text-white bg-black top-3 right-5">
-        DRUM MACHINE
+        <div className="absolute px-3 italic font-light text-white bg-black top-3 right-5">
+          DRUM MACHINE
+        </div>
+
+        <Controls soundText={soundText} clipName={clipName} />
       </div>
-
-      <Controls soundText={soundText} />
     </div>
   );
 }
