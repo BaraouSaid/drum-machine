@@ -4,7 +4,7 @@ import Controls from './components/Controls';
 // import './App.css';
 
 function App() {
-  const [soundText, setSoundText] = useState('Hello');
+  const [clipName, setClipName] = useState('Heaters');
 
   const heaters = [
     {
@@ -72,15 +72,15 @@ function App() {
     },
   ];
 
-  const [{ id, keyboardKey, keyCode, src, clipName }] = heaters;
+  const [{ id, keyboardKey, keyCode, src }] = heaters;
 
   const playSound = (el) => {
     const audioKey = document.getElementById(el);
     audioKey.play();
-    // console.log(audioKey);
-    console.log(audioKey.getAttribute('clipname'));
-    document.getElementById('display').innerHTML =
-      audioKey.getAttribute('clipname');
+    setClipName(
+      (document.getElementById('display').innerHTML =
+        audioKey.getAttribute('clipname'))
+    );
   };
 
   const playKeySound = (e) => {
@@ -88,17 +88,12 @@ function App() {
       (heater) => heater.keyboardKey === e.key.toUpperCase()
     );
     if (!heater) return;
-    console.log(heater);
     document.getElementById(heater.keyboardKey).play();
 
-    document.getElementById('display').innerHTML = heater.clipName;
+    setClipName(
+      (document.getElementById('display').innerHTML = heater.clipName)
+    );
   };
-
-  // const displayClipName = () => {
-  //   const displayDiv = document.getElementById('display');
-  //   displayDiv.innerHTML(heater.keyboardKey);
-  //   console.log(displayDiv);
-  // };
 
   return (
     <div tabIndex={0} onKeyDown={playKeySound}>
@@ -112,7 +107,7 @@ function App() {
           DRUM MACHINE
         </div>
 
-        <Controls soundText={soundText} clipName={clipName} />
+        <Controls clipName={clipName} />
       </div>
     </div>
   );

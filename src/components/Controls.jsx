@@ -1,6 +1,6 @@
 // import { useState } from 'react';
 
-const Controls = ({ soundText, clipName }) => {
+const Controls = ({ clipName }) => {
   return (
     <div className="flex flex-col items-center justify-center w-64 gap-5 h-96">
       <div className="flex flex-col items-center justify-center">
