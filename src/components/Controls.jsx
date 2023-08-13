@@ -1,6 +1,6 @@
 // import { useState } from 'react';
 
-const Controls = ({ soundText }) => {
+const Controls = ({ soundText, clipName }) => {
   return (
     <div className="flex flex-col items-center justify-center w-64 gap-5 h-96">
       <div className="flex flex-col items-center justify-center">
@@ -10,7 +10,7 @@ const Controls = ({ soundText }) => {
         </div>
       </div>
       <p id="display" className="block px-3 py-1 text-white bg-black">
-        {soundText}
+        {clipName}
       </p>
       <div>
         <input max="1" min="0" step="0.01" type="range" />

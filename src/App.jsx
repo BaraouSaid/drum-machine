@@ -72,18 +72,46 @@ function App() {
     },
   ];
 
+  const [{ id, keyboardKey, keyCode, src, clipName }] = heaters;
+
   const playSound = (el) => {
     const audioKey = document.getElementById(el);
     audioKey.play();
-    console.log();
+    console.log(audioKey);
+  };
+
+  // document.addEventListener('keydown', playKeySound);
+
+  // const displayClipName = (el) => {
+  //   const test = document.getElementById(el);
+  // let {clipName} = clipName
+  //   setSoundText(test.clipName);
+  //   console.log(test.clipName);
+  // };
+
+  const playKeySound = (e) => {
+    const clipName = heaters.find(
+      (heater) => heater.keyboardKey === e.key.toUpperCase()
+    );
+    console.log(clipName.keyboardKey);
+    if (!clipName) return;
+
+    const audioKey = document.getElementById(keyboardKey.src).play();
+    // audioKey.play();
+    console.log(audioKey);
+
+    // const audioKey = document.getElementById(el);
+    // audioKey.play();
+    // console.log(audioKey);
   };
 
   return (
     <div
       id="drum-machine"
       className="relative flex flex-row items-center justify-around h-auto p-1 px-8 mx-auto text-lg font-black bg-white border-8 border-solid flex-sm:flex-wrap h-3/4 border-zinc-900 w-max"
+      onKeyDown={playSound}
     >
-      <Drumpads heaters={heaters} soundText={soundText} playSound={playSound} />
+      <Drumpads heaters={heaters} playSound={playSound} clipname={clipName} />
 
       <div className="absolute px-3 italic font-light text-white bg-black top-3 right-5">
         DRUM MACHINE
