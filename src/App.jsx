@@ -77,8 +77,10 @@ function App() {
   const playSound = (el) => {
     const audioKey = document.getElementById(el);
     audioKey.play();
-    console.log(audioKey);
-    document.getElementById('display').innerHTML = el;
+    // console.log(audioKey);
+    console.log(audioKey.getAttribute('clipname'));
+    document.getElementById('display').innerHTML =
+      audioKey.getAttribute('clipname');
   };
 
   const playKeySound = (e) => {
