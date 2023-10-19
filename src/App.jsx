@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Drumpads from './components/Drumpads';
 import Controls from './components/Controls';
+import Footer from './components/Footer';
 // import './App.css';
 
 function App() {
@@ -97,7 +98,7 @@ function App() {
 
   return (
     <div tabIndex={0} onKeyDown={playKeySound}>
-      <main className="flex items-center justify-center min-h-screen">
+      <main className="flex flex-col items-center justify-center min-h-screen gap-10">
         <div
           id="drum-machine"
           className="relative flex flex-col items-center justify-around p-1 px-8 mx-8 text-lg font-black bg-white border-8 border-solid h-3/4 border-zinc-900"
@@ -116,6 +117,7 @@ function App() {
             <Controls clipName={clipName} />
           </div>
         </div>
+        <Footer />
       </main>
     </div>
   );
