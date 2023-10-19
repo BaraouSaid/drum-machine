@@ -97,18 +97,26 @@ function App() {
 
   return (
     <div tabIndex={0} onKeyDown={playKeySound}>
-      <div
-        id="drum-machine"
-        className="relative flex flex-row items-center justify-around h-auto p-1 px-8 mx-auto text-lg font-black bg-white border-8 border-solid flex-sm:flex-wrap h-3/4 border-zinc-900 w-max"
-      >
-        <Drumpads heaters={heaters} playSound={playSound} clipname={clipName} />
+      <main className="flex items-center justify-center min-h-screen">
+        <div
+          id="drum-machine"
+          className="relative flex flex-row items-center justify-around p-1 px-8 mx-8 text-lg font-black bg-white border-8 border-solid h-3/4 flex-sm:flex-wrap border-zinc-900 w-max"
+        >
+          <div className="flex items-center justify-center gap-5">
+            <Drumpads
+              heaters={heaters}
+              playSound={playSound}
+              clipname={clipName}
+            />
 
-        <div className="absolute px-3 italic font-light text-white bg-black top-3 right-5">
-          DRUM MACHINE
+            <div className="absolute px-3 italic font-light text-white bg-black top-3 right-5">
+              DRUM MACHINE
+            </div>
+
+            <Controls clipName={clipName} />
+          </div>
         </div>
-
-        <Controls clipName={clipName} />
-      </div>
+      </main>
     </div>
   );
 }
