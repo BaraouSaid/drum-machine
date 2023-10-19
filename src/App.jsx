@@ -100,7 +100,7 @@ function App() {
       <main className="flex items-center justify-center min-h-screen">
         <div
           id="drum-machine"
-          className="relative flex flex-row items-center justify-around p-1 px-8 mx-8 text-lg font-black bg-white border-8 border-solid h-3/4 flex-sm:flex-wrap border-zinc-900 w-max"
+          className="relative flex flex-col items-center justify-around p-1 px-8 mx-8 text-lg font-black bg-white border-8 border-solid h-3/4 border-zinc-900"
         >
           <div className="flex items-center justify-center gap-5">
             <Drumpads
