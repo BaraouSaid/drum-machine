@@ -1,13 +1,13 @@
 const Drumpads = ({ heaters, playSound }) => {
   return (
-    <div className="grid items-center justify-center grid-cols-3 md:gap-5 h-92 sm:gap-10">
+    <div className="grid items-center justify-center grid-cols-3 gap-5 m-4 h-92">
       {heaters.map(({ id, src, keyboardKey, clipName }) => {
         return (
           <div
             onClick={() => {
               playSound(keyboardKey, clipName);
             }}
-            className="flex items-center justify-center w-12 h-20 bg-white rounded-md shadow-md cursor-pointer drum-pad"
+            className="flex items-center justify-center w-20 h-20 bg-white rounded-md shadow-md cursor-pointer drum-pad"
             key={id}
             id={src}
           >
